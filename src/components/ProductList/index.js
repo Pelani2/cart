@@ -7,6 +7,7 @@ import "./product-list-styles.scss";
 
 const ProductList = () => {
     const dispatch = useDispatch();
+    const [selectedCategory, setSelectedCategory] = useState("");
     const [filteredProducts, setFilteredProducts] = useState(products);
 
     const uniqueCategories = [...new Set(products.map((product) => product.category))];
@@ -16,21 +17,32 @@ const ProductList = () => {
     };
 
     const handleSearch = (keyword) => {
-        const filtered = products.filter((product) => {
+        const filtered = products.filter((product) => 
             product.name.toLowerCase().includes(keyword.toLowerCase())
-        });
-        setFilteredProducts(filtered);
+        );
+        
+        if (selectedCategory) {
+            const categoryFiltered = filtered.filter((product) => product.category.toLowerCase() === selectedCategory.toLowerCase());
+            setFilteredProducts(categoryFiltered);
+        } else {
+            setFilteredProducts(filtered);
+        }
     };
 
     const handleFilter = (filterType, filterValue) => {
-        let filtered = products;
-        if (filterType === "category" && filterValue !== "") {
-          filtered = products.filter(
-            (product) => product.category.toLowerCase() === filterValue.toLowerCase()
-          );
+        setSelectedCategory(filterValue);
+        if (filterValue) {
+            const categoryFiltered = products.filter((product) => product.category.toLowerCase() === filterValue.toLowerCase());
+            setFilteredProducts(categoryFiltered);
+        } else {
+            setFilteredProducts(products); 
         }
-        setFilteredProducts(filtered);
-      };
+    };
+
+    const handleShowAllCategories = () => {
+        setSelectedCategory("");
+        setFilteredProducts(products);
+    };
 
     return (
         <div className="product__list">
@@ -39,7 +51,10 @@ const ProductList = () => {
                 handleFilter={handleFilter}
                 categories={uniqueCategories}
             />
-            {products.map((product) => (
+            <button onClick={handleShowAllCategories} className="product__show-all-button"> 
+                Show All Categories
+            </button>
+            {filteredProducts.map((product) => (
                 <div key={product.id} className="product__item">
                     <img src={product.image} alt={product.name} className="product__image" />
                     <h3 className="product__name">

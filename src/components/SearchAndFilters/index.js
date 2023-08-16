@@ -28,10 +28,7 @@ const SearchAndFilters = ({ handleSearch, handleFilter, categories }) => {
                 value={selectedCategory}
                 onChange={handleCategoryChange}
                 className="category-select"
-            >   
-                <option value="">
-                    All Categories
-                </option>
+            >
                 {categories.map((category) => (
                     <option key={category} value={category}>
                         {category}
