@@ -7,6 +7,7 @@ const products = [
       releaseDate: '2023-09-01',
       origin: 'Italy',
       image: 'https://th.bing.com/th/id/OIP.trgHvhRyIMcU8lupuBgl0QHaI4?pid=ImgDet&rs=1',
+      category: "Clothing",
     },
 
     {
@@ -17,6 +18,7 @@ const products = [
       releaseDate: '2023-08-15',
       origin: 'Switzerland',
       image: 'https://th.bing.com/th/id/R.afc01077e0387ba3f179202f5ffc974c?rik=r5E2JcGkhIXqRA&pid=ImgRaw&r=0', 
+      category: "Accessories",
     },
     {
       id: 3,
@@ -26,6 +28,7 @@ const products = [
       releaseDate: '2023-07-05',
       origin: 'Japan',
       image: 'https://th.bing.com/th/id/OIP.NOe00Xnp4EZTCA9JWs3M7wHaHY?pid=ImgDet&rs=1', 
+      category: "Food & Beverages",
     },
   ];
   

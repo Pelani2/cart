@@ -1,18 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/cartSlice";
 import products from "../../assets/Products";
+import SearchAndFilters from "../SearchAndFilters";
 import "./product-list-styles.scss";
 
 const ProductList = () => {
     const dispatch = useDispatch();
+    const [filteredProducts, setFilteredProducts] = useState(products);
+
+    const uniqueCategories = [...new Set(products.map((product) => product.category))];
 
     const handleAddToCart = (product) => {
         dispatch(addToCart(product));
     };
 
+    const handleSearch = (keyword) => {
+        const filtered = products.filter((product) => {
+            product.name.toLowerCase().includes(keyword.toLowerCase())
+        });
+        setFilteredProducts(filtered);
+    };
+
+    const handleFilter = (filterType, filterValue) => {
+        let filtered = products;
+        if (filterType === "category" && filterValue !== "") {
+          filtered = products.filter(
+            (product) => product.category.toLowerCase() === filterValue.toLowerCase()
+          );
+        }
+        setFilteredProducts(filtered);
+      };
+
     return (
         <div className="product__list">
+            <SearchAndFilters 
+                handleSearch={handleSearch}
+                handleFilter={handleFilter}
+                categories={uniqueCategories}
+            />
             {products.map((product) => (
                 <div key={product.id} className="product__item">
                     <img src={product.image} alt={product.name} className="product__image" />

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./search-and-filters-styles.scss";
 
-const SearchAndFilters = ({ handleSearch, handleFilter }) => {
+const SearchAndFilters = ({ handleSearch, handleFilter, categories }) => {
     const [searchKeyword, setSearchKeyword] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
 
@@ -32,6 +32,11 @@ const SearchAndFilters = ({ handleSearch, handleFilter }) => {
                 <option value="">
                     All Categories
                 </option>
+                {categories.map((category) => (
+                    <option key={category} value={category}>
+                        {category}
+                    </option>
+                ))}
             </select>
         </div>
     );
