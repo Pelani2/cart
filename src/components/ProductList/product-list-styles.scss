@@ -1,7 +1,11 @@
 .product__list {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    flex-direction: column;
+
+    .product__box {
+        display: flex;
+        justify-content: space-evenly;
+    }
 }
 
 .product__item {

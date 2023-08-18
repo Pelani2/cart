@@ -41,34 +41,38 @@ const ProductList = () => {
 
     return (
         <div className="product__list">
-            <SearchAndFilters 
-                handleSearch={handleSearch}
-                handleFilter={handleFilter}
-                categories={uniqueCategories}
-            />
-            {filteredProducts.map((product) => (
-                <div key={product.id} className="product__item">
-                    <img src={product.image} alt={product.name} className="product__image" />
-                    <h3 className="product__name">
-                        {product.name}
-                    </h3>
-                    <p className="product__price">
-                        ${product.price.toFixed(2)}
-                    </p>
-                    <p className="product__description">
-                        {product.description}
-                    </p>
-                    <p className="product__origin">
-                       Origin: {product.origin}
-                    </p>
-                    <p className="product__release-date">
-                        Release date: {product.releaseDate}
-                    </p>
-                    <button onClick={handleAddToCart(product)} className="product__add-button">
-                        Add to Cart
-                    </button>
-                </div>
-            ))}
+            <div className="search-and-filter__box">
+                <SearchAndFilters 
+                    handleSearch={handleSearch}
+                    handleFilter={handleFilter}
+                    categories={uniqueCategories}
+                />
+            </div>
+            <div className="product__box">
+                {filteredProducts.map((product) => (
+                    <div key={product.id} className="product__item">
+                        <img src={product.image} alt={product.name} className="product__image" />
+                        <h3 className="product__name">
+                            {product.name}
+                        </h3>
+                        <p className="product__price">
+                            ${product.price.toFixed(2)}
+                        </p>
+                        <p className="product__description">
+                            {product.description}
+                        </p>
+                        <p className="product__origin">
+                        Origin: {product.origin}
+                        </p>
+                        <p className="product__release-date">
+                            Release date: {product.releaseDate}
+                        </p>
+                        <button onClick={handleAddToCart(product)} className="product__add-button">
+                            Add to Cart
+                        </button>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }
