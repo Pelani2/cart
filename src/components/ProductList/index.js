@@ -39,11 +39,6 @@ const ProductList = () => {
         }
     };
 
-    const handleShowAllCategories = () => {
-        setSelectedCategory("");
-        setFilteredProducts(products);
-    };
-
     return (
         <div className="product__list">
             <SearchAndFilters 
@@ -51,9 +46,6 @@ const ProductList = () => {
                 handleFilter={handleFilter}
                 categories={uniqueCategories}
             />
-            <button onClick={handleShowAllCategories} className="product__show-all-button"> 
-                Show All Categories
-            </button>
             {filteredProducts.map((product) => (
                 <div key={product.id} className="product__item">
                     <img src={product.image} alt={product.name} className="product__image" />
@@ -61,10 +53,10 @@ const ProductList = () => {
                         {product.name}
                     </h3>
                     <p className="product__price">
-                        Price: ${product.price.toFixed(2)}
+                        ${product.price.toFixed(2)}
                     </p>
                     <p className="product__description">
-                        Description: {product.description}
+                        {product.description}
                     </p>
                     <p className="product__origin">
                        Origin: {product.origin}

@@ -11,9 +11,16 @@ const SearchAndFilters = ({ handleSearch, handleFilter, categories }) => {
     };
 
     const handleCategoryChange = (event) => {
-        setSearchKeyword(event.target.value);
+        setSearchKeyword("");
+        setSelectedCategory(event.target.value);
         handleFilter("category", event.target.value);
     };
+
+    const handleResetCategory = () => {
+        setSearchKeyword("");
+        setSelectedCategory("");
+        handleFilter("category", "");
+    }
 
     return (
         <div className="search-and-filters">
@@ -35,6 +42,10 @@ const SearchAndFilters = ({ handleSearch, handleFilter, categories }) => {
                     </option>
                 ))}
             </select>
+            <button onClick={handleResetCategory} className="reset-button
+            ">
+                Reset Category
+            </button>
         </div>
     );
 };
