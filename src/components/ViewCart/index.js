@@ -36,13 +36,14 @@ const ViewCart = () => {
                                     <h3 className="item-name">{product.name}</h3>
                                     <p className="item-quantity">Quantity: {item.quantity}</p>
                                     <p className="item-price">Price: ${product.price.toFixed(2)}</p>
-                                    <button
+                                </div>
+                                <img src={product.image} alt={product.name} className="item-image" />
+                                <button
                                         className="remove-button"
                                         onClick={() => handleRemoveItem(item.product.id)}
                                     >
                                         Remove
                                     </button>
-                                </div>
                             </div>
                         );
                     })}

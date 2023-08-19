@@ -1,10 +1,12 @@
 .search-and-filters {
     display: flex;
     align-items: center;
+    justify-content: space-evenly; 
     margin-bottom: 20px;
 
     .search-input {
-        flex: 1;
+        flex: 0.5;
+        width: auto; 
         padding: 8px;
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -12,6 +14,7 @@
     }
 
     .category-select {
+        width: auto; 
         padding: 8px;
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -19,6 +22,7 @@
     }
 
     .reset-button {
+        width: auto; 
         padding: 8px 16px;
         background-color: #f44336;
         color: #fff;

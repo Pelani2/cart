@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./navigation-bar-styles.scss";
 
 const NavigationBar = () => {   
+    const cartItems = useSelector((state) => state.cart.cartItems);
+    
+    const totalItemsInCart = cartItems.reduce((total, item) => total + item.quantity, 0);
     return(
         <nav className="navigation-bar">
             <div className="logo">My Store</div>
@@ -21,7 +25,7 @@ const NavigationBar = () => {
                 </li>
             </ul>
             <Link className="go-to-cart-button" to="/viewcart">
-                Go To Cart
+                Go To Cart ({totalItemsInCart})
             </Link>
         </nav>
     );
