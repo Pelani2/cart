@@ -13,7 +13,7 @@ const ProductList = () => {
     const uniqueCategories = [...new Set(products.map((product) => product.category))];
 
     const handleAddToCart = (product) => {
-        dispatch(addToCart(product));
+        dispatch(addToCart({ product, quantity: 1}));
     };
 
     const handleSearch = (keyword) => {
@@ -67,7 +67,7 @@ const ProductList = () => {
                         <p className="product__release-date">
                             Release date: {product.releaseDate}
                         </p>
-                        <button onClick={handleAddToCart(product)} className="product__add-button">
+                        <button onClick={() => handleAddToCart(product)} className="product__add-button">
                             Add to Cart
                         </button>
                     </div>
