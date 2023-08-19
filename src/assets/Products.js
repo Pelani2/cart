@@ -1,6 +1,10 @@
+const generateUniqueId = () => {
+  return Math.random().toString(36).substr(2, 9); // Generates a random alphanumeric string
+};
+
 const products = [
     {
-      id: 1,
+      id: generateUniqueId(),
       name: 'Premium Leather Jacket',
       price: 249.99,
       description: 'A stylish leather jacket made from premium quality leather.',
@@ -11,7 +15,7 @@ const products = [
     },
 
     {
-      id: 2,
+      id: generateUniqueId(),
       name: 'Classic Vintage Watch',
       price: 129.95,
       description: 'An elegant vintage watch that blends style and functionality.',
@@ -20,8 +24,9 @@ const products = [
       image: 'https://th.bing.com/th/id/R.afc01077e0387ba3f179202f5ffc974c?rik=r5E2JcGkhIXqRA&pid=ImgRaw&r=0', 
       category: "Accessories",
     },
+
     {
-      id: 3,
+      id: generateUniqueId(),
       name: 'Organic Green Tea',
       price: 14.99,
       description: 'A soothing blend of organic green tea leaves with a mild flavor.',

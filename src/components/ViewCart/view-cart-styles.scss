@@ -35,10 +35,25 @@
                 }
 
                 .item-quantity, 
-                .item-name {
+                .item-price {
                     font-size: 14px;
                     color: #555;
                     margin: 2px 0;
+                }
+
+                .remove-button {
+                    display: inline-block;
+                    background-color: #dc3545;
+                    color: #fff;
+                    border: none;
+                    padding: 5px 10px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    transition: background-color 0.2s;
+
+                    &:hover {
+                        background-color: #c82333;
+                    }
                 }
             }
         }
