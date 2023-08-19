@@ -40,6 +40,21 @@
                     color: #555;
                     margin: 2px 0;
                 }
+
+                .item-quantity input {
+                    width: 40px;
+                    padding: 5px;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    font-size: 14px;
+                    text-align: center;
+
+                    &:focus {
+                        outline: none;
+                        border-color: #007bff;
+                        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+                    }
+                }
             }
 
             .remove-button {
