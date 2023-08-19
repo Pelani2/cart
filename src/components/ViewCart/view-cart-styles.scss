@@ -25,9 +25,11 @@
             padding: 10px;
             margin-bottom: 10px;
             background-color: #fff;
+            align-items: center;
 
             .item-details {
                 flex: 1;
+
 
                 .item-name {
                     font-size: 18px;
@@ -42,7 +44,7 @@
                 }
 
                 .item-quantity input {
-                    width: 40px;
+                    width: 60px;
                     padding: 5px;
                     border: 1px solid #ccc;
                     border-radius: 4px;
@@ -64,6 +66,7 @@
                 border: none;
                 padding: 10px;
                 border-radius: 50%;
+                height: 60px;
                 cursor: pointer;
                 transition: background-color 0.2s, box-shadow 0.2s;
 
