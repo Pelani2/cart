@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart } from "../../redux/cartSlice";
 import products from "../../assets/Products"; // Import the updated Products.js file
@@ -8,12 +8,28 @@ const ViewCart = () => {
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.cartItems);
 
-    const calculateTotalPrice = () => {
-        return cartItems.reduce((total, item) => total + item.product.price * item.quantity, 0);
+    const [itemQuantities, setItemQuantities] = useState(
+        Object.fromEntries(cartItems.map((item) => [item.product.id, item.quantity]))
+    );
+
+    const calculateItemPrice = (productId) => {
+        const item = cartItems.find((item) => item.product.id === productId);
+        return item.product.price * itemQuantities[productId];
     };
+
+    const calculateTotalPrice = () => {
+        return cartItems.reduce((total, item) => total + calculateItemPrice(item.product.id), 0);
+    };;
 
     const handleRemoveItem = (productId) => {
         dispatch(removeFromCart(productId));
+    };
+
+    const handleChangeQuantity = (productId, quantity) => {
+        setItemQuantities((prevQuantities) => ({
+            ...prevQuantities, 
+            [productId]: quantity,
+        }));
     };
 
     const productMap = products.reduce((map, product) => {
@@ -30,12 +46,21 @@ const ViewCart = () => {
                 <div className="cart-items">
                     {cartItems.map((item) => {
                         const product = productMap[item.product.id];
+                        const itemPrice = calculateItemPrice(item.product.id);
                         return (
                             <div key={item.id} className="cart-item">
                                 <div className="item-details">
                                     <h3 className="item-name">{product.name}</h3>
-                                    <p className="item-quantity">Quantity: {item.quantity}</p>
-                                    <p className="item-price">Price: ${product.price.toFixed(2)}</p>
+                                    <p className="item-quantity">
+                                        Quantity: {" "}
+                                        <input 
+                                            type="number"
+                                            value={itemQuantities[item.product.id]}
+                                            onChange={(e) => handleChangeQuantity(item.product.id, parseInt(e.target.value))}
+                                            min={1}
+                                        />
+                                    </p>
+                                    <p className="item-price">Price: ${itemPrice.toFixed(2)}</p>
                                 </div>
                                 <img src={product.image} alt={product.name} className="item-image" />
                                 <button
