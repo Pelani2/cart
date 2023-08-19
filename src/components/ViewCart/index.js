@@ -12,7 +12,7 @@ const ViewCart = () => {
     return (
         <div className="view-cart">
             <h2 className="cart-heading">
-                Your Shopping Cart
+                Your Cart
             </h2>
             {cartItems.length === 0 ? (
                 <p className="empty-cart-message"> Your cart is empty </p>
