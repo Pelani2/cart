@@ -20,9 +20,9 @@ const NavigationBar = () => {
                     <Link to="/contact"></Link>
                 </li>
             </ul>
-            <button className="go-to-cart-button">
+            <Link className="go-to-cart-button" to="/viewcart">
                 Go To Cart
-            </button>
+            </Link>
         </nav>
     );
 };
