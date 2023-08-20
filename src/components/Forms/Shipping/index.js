@@ -2,6 +2,7 @@ import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup"; 
 import * as yup from "yup";
+import "./shipping-styles.scss";
 
 const schema = yup.object().shape({
     firstName: yup.string().required("First name is required"),
@@ -83,6 +84,36 @@ const ShippingForm = ({ onNext }) => {
                     />
                     <p className="error-message">
                         {errors.city?.message}
+                    </p>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="postalCode">
+                        Postal code:
+                    </label>
+                    <Controller 
+                        name="postalCode"
+                        control={control}
+                        render={({ field }) => (
+                            <input {...field} type="text" />
+                        )}
+                    />
+                    <p className="error-message">
+                        {errors.postalCode?.message}
+                    </p>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="country">
+                        Country:
+                    </label>
+                    <Controller 
+                        name="country"
+                        control={control}
+                        render={({ field }) => (
+                            <input {...field} type="text" />
+                        )}
+                    />
+                    <p className="error-message">
+                        {errors.country?.message}
                     </p>
                 </div>
                 <button type="submit">Next</button>
