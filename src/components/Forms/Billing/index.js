@@ -13,7 +13,7 @@ const schema = yup.object().shape({
     country: yup.string().required("Country is required"),
 });
 
-const Billing = ({ onBack, onSubmit }) => {
+const Billing = ({ onBack, onNext }) => {
     const {
         handleSubmit, 
         control,
@@ -23,7 +23,7 @@ const Billing = ({ onBack, onSubmit }) => {
     });
 
     const handleBillingSubmit = (data) => {
-        onSubmit();
+        onNext();
     };
 
     return (
@@ -133,7 +133,7 @@ const Billing = ({ onBack, onSubmit }) => {
                         <button type="button" onClick={onBack}>
                             Back
                         </button>
-                        <button type="submit">
+                        <button type="submit" onClick={onNext}>
                             Next
                         </button>
                     </div>

@@ -6,11 +6,12 @@ import ShippingForm from "../components/Forms/Shipping";
 import Payment from "../components/Forms/Payment";
 import Billing from "../components/Forms/Billing";
 import Confirmation from "../components/Forms/Confirmation";
+import Checkout from "../components/Forms/Checkout";
 
 const AppRoutes = createBrowserRouter([
     {
         path: "/",
-        element: <Confirmation />
+        element: <Checkout />
     },
     {
         path: "/viewcart",

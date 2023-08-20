@@ -14,7 +14,10 @@ const schema = yup.object().shape({
 });
 
 const ShippingForm = ({ onNext }) => {
-    const { control, handleSubmit, formState: { errors } } = useForm({
+    const { 
+        control, 
+        handleSubmit, 
+        formState: { errors } } = useForm({
         resolver: yupResolver(schema),
     });
 
@@ -117,7 +120,7 @@ const ShippingForm = ({ onNext }) => {
                             {errors.country?.message}
                         </p>
                     </div>
-                    <button type="submit">Next</button>
+                    <button type="submit" onClick={onNext}>Next</button>
                 </form>
             </div>
         </div>

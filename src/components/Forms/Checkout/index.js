@@ -19,7 +19,10 @@ const Checkout = () => {
     return (
         <div className="checkout__container">
             <div className="checkout">
-                 
+                {currentStep === 1 && <ShippingForm onNext={handleNext} />}
+                {currentStep === 2 && <Billing onBack={handlePrevious} onNext={handleNext} />}
+                {currentStep === 3 && <Payment onBack={handlePrevious} onNext={handleNext} />}
+                {currentStep === 4 && <Confirmation onBack={handlePrevious} />}
             </div>
         </div>
     );

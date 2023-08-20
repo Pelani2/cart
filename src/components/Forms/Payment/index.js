@@ -10,7 +10,7 @@ const schema = yup.object().shape({
     cardCvc: yup.string().required("Card CVC is required"),
 });
 
-const Payment = ({ onBack, onSubmit }) => {
+const Payment = ({ onBack, onNext }) => {
     const {
         handleSubmit, 
         control, 
@@ -18,7 +18,7 @@ const Payment = ({ onBack, onSubmit }) => {
     } = useForm({ resolver: yupResolver(schema), });
 
     const handlePaymentSubmit = (data) => {
-        onSubmit();
+        onNext();
     };
 
     return (
@@ -79,7 +79,7 @@ const Payment = ({ onBack, onSubmit }) => {
                         <button type="button" onClick={onBack}>
                             Back
                         </button>
-                        <button type="submit">
+                        <button type="submit" onClick={onNext}>
                             Pay
                         </button>
                     </div>
