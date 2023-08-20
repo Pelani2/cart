@@ -33,7 +33,110 @@ const Billing = ({ onBack, onSubmit }) => {
                     Billing information
                 </h2>
                 <form onSubmit={handleSubmit(handleBillingSubmit)}>
+                    <div className="billing-group">
+                        <label htmlFor="email">
+                            Email:
+                        </label>
+                        <Controller 
+                            name="email"
+                            control={control}
+                            render={({ field }) => (
+                                <input {...field} type="text" />
+                            )}
+                        />
+                        <p className="error-message">
+                            {errors.email?.message}
+                        </p>
+                    </div>
 
+                    <div className="billing-group">
+                        <label htmlFor="fullName">
+                            Full name:
+                        </label>
+                        <Controller 
+                            name="fullName"
+                            control={control}
+                            render={({ field }) => (
+                                <input {...field} type="text" />
+                            )}
+                        />
+                        <p className="error-message">
+                            {errors.fullName?.message}
+                        </p>
+                    </div>
+
+                    <div className="billing-group">
+                        <label htmlFor="address">
+                            Address:
+                        </label>
+                        <Controller 
+                            name="address"
+                            control={control}
+                            render={({ field }) => (
+                                <input {...field} type="text" />
+                            )}
+                        />
+                        <p className="error-message">
+                            {errors.address?.message}
+                        </p>
+                    </div>
+
+                    <div className="billing-group">
+                        <label htmlFor="city">
+                            City:
+                        </label>
+                        <Controller 
+                            name="city"
+                            control={control}
+                            render={({ field }) => (
+                                <input {...field} type="text" />
+                            )}
+                        />
+                        <p className="error-message">
+                            {errors.city?.message}
+                        </p>
+                    </div>
+
+                    <div className="billing-group">
+                        <label htmlFor="postalCode">
+                            Postal code:
+                        </label>
+                        <Controller 
+                            name="postalCode"
+                            control={control}
+                            render={({ field }) => (
+                                <input {...field} type="text" />
+                            )}
+                        />
+                        <p className="error-message">
+                            {errors.postalCode?.message}
+                        </p>
+                    </div>
+
+                    <div className="billing-group">
+                        <label htmlFor="country">
+                            Country:
+                        </label>
+                        <Controller 
+                            name="country"
+                            control={control}
+                            render={({ field }) => (
+                                <input {...field} type="text" />
+                            )}
+                        />
+                        <p className="error-message">
+                            {errors.country?.message}
+                        </p>
+                    </div>
+
+                    <div className="billing__buttons">
+                        <button type="button" onClick={onBack}>
+                            Back
+                        </button>
+                        <button type="submit">
+                            Next
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
