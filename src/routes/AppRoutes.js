@@ -4,11 +4,12 @@ import Home from "../pages/Home";
 import ViewCart from "../components/ViewCart";
 import ShippingForm from "../components/Forms/Shipping";
 import Payment from "../components/Forms/Payment";
+import Billing from "../components/Forms/Billing";
 
 const AppRoutes = createBrowserRouter([
     {
         path: "/",
-        element: <Payment />
+        element: <Billing />
     },
     {
         path: "/viewcart",
