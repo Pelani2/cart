@@ -44,6 +44,46 @@ const Payment = ({ onBack, onSubmit }) => {
                             {errors.cardNumber?.message}
                         </p>
                     </div>
+
+                    <div className="payment-group">
+                        <label htmlFor="cardExpiry">
+                            Card expiry date:
+                        </label>
+                        <Controller 
+                            name="cardExpiry"
+                            control={control}
+                            render={({ field }) => (
+                                <input {...field} type="text" />
+                            )}
+                        />
+                        <p className="error-message">
+                            {errors.cardExpiry?.message}
+                        </p>
+                    </div>
+
+                    <div className="payment-group">
+                        <label htmlFor="cardCvc">
+                            Card CVC:
+                        </label>
+                        <Controller 
+                            name="cardCvc"
+                            control={control}
+                            render={({ field }) => (
+                                <input {...field} type="text" />
+                            )}
+                        />
+                        <p className="error-message">
+                            {errors.cardCvc?.message}
+                        </p>
+                    </div>
+                    <div className="payment__buttons">
+                        <button type="button" onClick={onBack}>
+                            Back
+                        </button>
+                        <button type="submit">
+                            Pay
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
