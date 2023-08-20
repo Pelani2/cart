@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart } from "../../redux/cartSlice";
-import products from "../../assets/Products"; // Import the updated Products.js file
+import products from "../../assets/Products"; 
 import "./view-cart-styles.scss";
 
 const ViewCart = () => {
@@ -19,7 +19,7 @@ const ViewCart = () => {
 
     const calculateTotalPrice = () => {
         return cartItems.reduce((total, item) => total + calculateItemPrice(item.product.id), 0);
-    };;
+    };
 
     const handleRemoveItem = (productId) => {
         dispatch(removeFromCart(productId));

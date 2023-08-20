@@ -2,11 +2,12 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
 import ViewCart from "../components/ViewCart";
+import ShippingForm from "../components/Forms/Shipping";
 
 const AppRoutes = createBrowserRouter([
     {
         path: "/",
-        element: <Home />
+        element: <ShippingForm />
     },
     {
         path: "/viewcart",
