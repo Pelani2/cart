@@ -11,7 +11,7 @@ import Checkout from "../components/Forms/Checkout";
 const AppRoutes = createBrowserRouter([
     {
         path: "/",
-        element: <Checkout />
+        element: <Home />
     },
     {
         path: "/viewcart",
