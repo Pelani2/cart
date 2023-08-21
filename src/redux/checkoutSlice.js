@@ -19,4 +19,5 @@ const checkoutSlice = createSlice({
 });
 
 export const { goToNextStep, goToPreviousStep, resetCheckout } = checkoutSlice.actions;
+export const selectCurrentStep = (state) => state.checkout.step;
 export default checkoutSlice.reducer;
