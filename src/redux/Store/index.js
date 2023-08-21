@@ -13,6 +13,7 @@ const store = configureStore({
         billing: billingReducer,
         checkout: checkoutReducer,
     },
+    devTools: true,
 });
 
 export default store;

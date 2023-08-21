@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart } from "../../redux/cartSlice";
+import { goToNextStep } from "../../redux/checkoutSlice";
+import { Link } from "react-router-dom";
 import products from "../../assets/Products"; 
 import "./view-cart-styles.scss";
 
@@ -36,6 +38,10 @@ const ViewCart = () => {
         map[product.id] = product;
         return map;
     }, {});
+
+    const handleBuy = () => {
+        dispatch(goToNextStep());
+    };
 
     return (
         <div className="view-cart">
@@ -76,6 +82,9 @@ const ViewCart = () => {
                     <div className="cart-total">
                         <h3 className="total-heading">Total: </h3>
                         <p className="total-amount">${calculateTotalPrice().toFixed(2)}</p>
+                        <Link to="/checkout" className="buy-button">
+                            Buy
+                        </Link>
                     </div>
                 </div>
             )}
